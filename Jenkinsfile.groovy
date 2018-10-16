@@ -8,6 +8,7 @@ pipeline {
                 echo 'Building..'
                 sh "chmod +x -R ${env.WORKSPACE}/run.sh"
                 sh "${env.WORKSPACE}/run.sh"
+                input 'Proceed with Build?'
             }
         }
         stage('Test') {
