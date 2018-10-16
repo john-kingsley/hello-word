@@ -1,3 +1,8 @@
-#!groovy
+#!/usr/bin/env groovy
 
-apply from 'https://github.com/john-kingsley/hello-word/testrepo/Jenkinsfile'
+def jenkinsFile
+stage('Loading Jenkins file') {
+  jenkinsFile = fileLoader.fromGit('Jenkinsfile', 'https://github.com/john-kingsley/hello-word.git', 'testrepo', null, '')
+}
+
+jenkinsFile.start()
