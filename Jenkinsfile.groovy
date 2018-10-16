@@ -6,7 +6,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh './run.sh'
+                sh "chmod +x -R ${env.WORKSPACE}/../${env.JOB_NAME}@script"
+                sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/run.sh"
             }
         }
         stage('Test') {
